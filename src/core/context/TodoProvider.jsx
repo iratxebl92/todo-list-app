@@ -32,7 +32,9 @@ export const TodoProvider = ({ children }) => {
   };
 
   useEffect(() => {
+
     localStorage.setItem("todo", JSON.stringify(todoState));
+    
   }, [todoState]);
 
   return (

@@ -27,8 +27,7 @@ export const TodoCard = ({ todos }) => {
         justifyContent: "space-between",
       }}
     >
-      {/* <p>{item}</p>
-        <p>{priority}</p> */}
+    
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Typography variant="body1" gutterBottom>
           Task
@@ -49,8 +48,7 @@ export const TodoCard = ({ todos }) => {
       <Button onClick={() => onProgressButton(progress)}> {progress } </Button>
 
         <Box>
-          {/* <CircularProgress sx={{color: 'rgba(128, 128, 128, 0.2)'}} className="circular-progress" variant="determinate" value={100} /> */}
-          {/* La de arriba es para cuando esté por hacer la tarea */}
+    
           <CircularProgress
           sx={ progress === 'To Do' ? {color: 'rgba(128, 128, 128, 0.2)'} : ''}
             className="circular-progress"
