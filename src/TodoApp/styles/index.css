@@ -1,0 +1,14 @@
+.todo-app-container {
+    border: 12px solid black;
+    height: 100vh;
+}
+.todo-app-title {
+    text-align: center;
+
+}
+.todo-app-add-button {
+    background-color: #646ff0;
+}
+.todo-app-table {
+    border: 5px solid green;
+}
