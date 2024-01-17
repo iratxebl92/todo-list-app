@@ -8,7 +8,17 @@
 }
 .todo-app-add-button {
     background-color: #646ff0;
+    color: white
 }
 .todo-app-table {
     border: 5px solid green;
+}
+
+.circular-progress {
+    color: rgba(128, 128, 128, 0.2);
+    display: block;
+}
+
+.circular-progress.progress-0 {
+    color: rgba(128, 128, 128, 0.2);
 }

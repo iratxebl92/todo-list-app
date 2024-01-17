@@ -7,10 +7,6 @@ export const useAddModal = () => {
 
     const {addTodoItem, setOpenModal} = useContext(TodoContext)
   
-
-
-
-//   const [item, setText] = useState("");
   const [{item, priority}, setTodo] = useState(
     {
         item: '',

@@ -12,7 +12,7 @@ const init = () => {
 export const TodoProvider = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
   const [todoState, dispatch] = useReducer(TodoReducer, [], init);
-
+console.log(todoState)
 
 
   const addTodoItem = (item, priority) => {
@@ -34,7 +34,7 @@ export const TodoProvider = ({ children }) => {
   useEffect(() => {
 
     localStorage.setItem("todo", JSON.stringify(todoState));
-    
+
   }, [todoState]);
 
   return (

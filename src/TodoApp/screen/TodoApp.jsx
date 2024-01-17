@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CustomButton } from "../../core/share/CustomButton/CustomButton";
 import { TodoTask } from "../components/TodoTask";
-import "../styles/index.css";
+import "../styles/styles.css";
 import { TodoContext } from "../../core/context/TodoContext";
 import { AddItem } from "../../TodoAddModal/components/AddItem";
 import { UseTodoApp } from "../hooks/UseTodoApp";

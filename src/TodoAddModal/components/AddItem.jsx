@@ -5,20 +5,28 @@ import {
   Modal,
   ListItem,
   List,
-  Typography
+  Typography,
 } from "@mui/material";
 
 import { useContext } from "react";
 import { TodoContext } from "../../core/context/TodoContext";
 import { useAddModal } from "../hooks/UseAddModal";
 
+import "../styles/styles.css";
 
 export const AddItem = () => {
-
-
   const { openModal, setOpenModal, addTodoItem } = useContext(TodoContext);
 
-  const {item, priority, error, handleItemChange, handlePriorityChange,onSubmit} = useAddModal()
+  const {
+    item,
+    priority,
+    error,
+    handleItemChange,
+    handlePriorityChange,
+    onSubmit,
+  } = useAddModal();
+
+  const selectPriority = ["high", "medium", "low"];
 
   return (
     <>
@@ -57,29 +65,24 @@ export const AddItem = () => {
             value={item}
             style={{ marginBottom: "10px" }}
           />
-          <Box >
-            <List style={{display: 'flex'}}>
-              <ListItem 
-                style={{border: '1px solid #f73446', borderRadius: '10px', backgroundColor: 'white', color: '#f73446', width: '90px', marginRight: '30px' }}
-                onClick={ ()=> handlePriorityChange('High')}
-                value={{priority}}
-              >
-                High
-              </ListItem>
-              <ListItem 
-                style={{border: '1px solid #ffbd21', borderRadius: '10px', backgroundColor: 'white', color: '#ffbd21',  width: '90px',marginRight: '30px'}}
-                onClick={ ()=> handlePriorityChange('Medium')}
-                value={{priority}}
-              >
-                Medium
-              </ListItem>
-              <ListItem 
-                style={{border: '1px solid #0ac947', borderRadius: '10px', backgroundColor: 'white', color: '#0ac947',  width: '90px'}}
-                onClick={ ()=> handlePriorityChange('Low')}
-                value={{priority}}
-              >
-                Low
-              </ListItem>
+          <Box>
+            <List style={{ display: "flex" }}>
+              {selectPriority.map((priorityItem, index) => {
+                return (
+                  <ListItem
+                    key={index}
+                    style={{
+                      borderRadius: "10px",
+                      width: "90px",
+                      marginRight: "30px",
+                    }}
+                    onClick={() => handlePriorityChange(priorityItem)}
+                    className={`${priorityItem}-select`}
+                  >
+                    {priorityItem}
+                  </ListItem>
+                );
+              })}
             </List>
           </Box>
           <Button

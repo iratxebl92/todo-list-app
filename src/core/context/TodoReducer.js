@@ -4,8 +4,8 @@ import { types } from "./types/types";
 
 export const TodoReducer = (initialState = [] , action ) => {
   
- console.log(initialState, "STATE")
-    
+
+
       switch (action.type) {
 
         case types.addTodo:
