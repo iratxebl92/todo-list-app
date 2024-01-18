@@ -3,9 +3,8 @@ import {
   TextField,
   Box,
   Modal,
-  ListItem,
-  List,
   Typography,
+
 } from "@mui/material";
 
 import { useContext } from "react";
@@ -15,7 +14,7 @@ import { useAddModal } from "../hooks/UseAddModal";
 import "../styles/styles.css";
 
 export const AddItem = () => {
-  const { openModal, setOpenModal, addTodoItem } = useContext(TodoContext);
+  const { openModal, setOpenModal, addTodoItem,  } = useContext(TodoContext);
 
   const {
     item,
@@ -24,9 +23,11 @@ export const AddItem = () => {
     handleItemChange,
     handlePriorityChange,
     onSubmit,
+
   } = useAddModal();
 
   const selectPriority = ["high", "medium", "low"];
+
 
   return (
     <>
@@ -53,12 +54,14 @@ export const AddItem = () => {
         >
           <Typography>Add Task</Typography>
           <TextField
-            label="Tarea"
+         
+            placeholder="Escribe aquí tu tarea"
             variant="outlined"
             id="text"
             type="text"
             required
             fullWidth
+            autoFocus
             error={error.error}
             helperText={error.message}
             onChange={handleItemChange}
@@ -66,37 +69,46 @@ export const AddItem = () => {
             style={{ marginBottom: "10px" }}
           />
           <Box>
-            <List style={{ display: "flex" }}>
+            <Box style={{ display: "flex", gap: '20px' }}>
               {selectPriority.map((priorityItem, index) => {
                 return (
-                  <ListItem
+                  <Button
                     key={index}
                     style={{
                       borderRadius: "10px",
-                      width: "90px",
-                      marginRight: "30px",
+                      width: "120px",
+                      fontWeight: 'bold'
+                      
                     }}
+                    variant="outlined"
                     onClick={() => handlePriorityChange(priorityItem)}
-                    className={`${priorityItem}-select`}
+                    // className={`${priorityItem}-select priority `}
+                    sx={{
+                      border: priorityItem === 'high' ?' 1px solid #f73446' : priorityItem === 'medium' ? '1px solid #ffbd21' : '1px solid #0ac947',
+                      color: priorityItem === 'high' ?'#f73446' : priorityItem === 'medium' ? '#ffbd21' : '#0ac947'
+                      
+                     }}
                   >
                     {priorityItem}
-                  </ListItem>
+                  </Button>
                 );
               })}
-            </List>
+            </Box>
           </Box>
           <Button
             variant="outlined"
             type="submit"
+            disabled={item.length > 3 && priority.length >= 3 ? false : true}
             sx={{ mt: 2 }}
             onClick={() => onSubmit(item, priority)}
           >
-            Submit
+            Aceptar
           </Button>
           <Button
             variant="outlined"
             sx={{ mt: 2 }}
             onClick={() => setOpenModal(false)}
+          
           >
             Cancelar
           </Button>

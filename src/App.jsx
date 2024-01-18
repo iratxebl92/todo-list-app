@@ -1,7 +1,7 @@
 
 import { TodoApp } from "./TodoApp/screen/TodoApp";
 import { TodoProvider } from "./core/context/TodoProvider";
-import "./index.css";
+
 
 function App() {
   return (

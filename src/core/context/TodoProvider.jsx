@@ -11,9 +11,12 @@ const init = () => {
 
 export const TodoProvider = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
-  const [todoState, dispatch] = useReducer(TodoReducer, [], init);
-console.log(todoState)
+  const [openDeleteModal, setOpenDeleteModal]= useState(false)
 
+
+
+
+  const [todoState, dispatch] = useReducer(TodoReducer, [], init);
 
   const addTodoItem = (item, priority) => {
     const action = {
@@ -24,9 +27,10 @@ console.log(todoState)
   };
 
   const deleteItem = (id) => {
+  
     const action = {
       type: types.deleteTodo,
-      payload: { id },
+      payload:  id ,
     };
     dispatch(action);
   };
@@ -37,6 +41,7 @@ console.log(todoState)
 
   }, [todoState]);
 
+
   return (
     <TodoContext.Provider
       value={{
@@ -46,6 +51,9 @@ console.log(todoState)
         setOpenModal,
         addTodoItem,
         deleteItem,
+        openDeleteModal,
+        setOpenDeleteModal,
+    
       }}
     >
       {children}

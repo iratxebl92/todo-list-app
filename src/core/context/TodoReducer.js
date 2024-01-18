@@ -4,8 +4,6 @@ import { types } from "./types/types";
 
 export const TodoReducer = (initialState = [] , action ) => {
   
-
-
       switch (action.type) {
 
         case types.addTodo:
@@ -13,15 +11,10 @@ export const TodoReducer = (initialState = [] , action ) => {
           return[ ...initialState, action.payload]
 
 
-        // case types.deleteTodo:
-        //  const todoFilter = initialState.filter((todo) => {
-        //   return todo.id != action.payload
-        //  })
-        //  console.log(todoFilter, "TODO FILTER")
-        //  return [
-        //   ...initialState,
-        //   todoFilter
-        //  ]
+        case types.deleteTodo:
+          return initialState.filter(todo => todo.id !== action.payload);
+          
+         
       
         default:
           return initialState;

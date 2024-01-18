@@ -36,6 +36,6 @@ export const UseTodoApp = () => {
 
 return {
     onProgressButton,
-    progress
+    progress,
 }
 }
