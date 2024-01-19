@@ -7,14 +7,18 @@ import { useContext} from "react";
 import { TodoContext } from "../../core/context/TodoContext";
 import "../styles/styles.css";
 import { DeleteItem } from "../../TodoDeleteModal/components/DeleteItem";
+import { UpdateItem } from "../../TodoUpdateModal/components/UpdateItem";
 
 export const TodoCard = ({ todos = [] }) => {
   const { id, item, priority } = todos;
   const { onProgressButton, progress } = UseTodoApp();
-  const { setOpenDeleteModal } = useContext(TodoContext);
+  const { setOpenDeleteModal, setOpenUpdateModal, updateItem } = useContext(TodoContext);
+
   return (
     <>
-     <DeleteItem id={id} /> 
+     <UpdateItem />  
+     <DeleteItem id={id} />
+    
       <Box
         className="todo-card"
         sx={{
@@ -65,7 +69,10 @@ export const TodoCard = ({ todos = [] }) => {
           />
         </Box>
         <Box>
-          <NoteAltOutlinedIcon fontSize="large" />
+          <NoteAltOutlinedIcon 
+            fontSize="large" 
+             onClick={() => updateItem(id, item, priority)} 
+            />
           <DeleteOutlineOutlinedIcon
             fontSize="large"
             sx={{ color: "red" }}

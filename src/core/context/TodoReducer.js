@@ -2,22 +2,22 @@
 import { types } from "./types/types";
 
 
-export const TodoReducer = (initialState = [] , action ) => {
+export const TodoReducer = (state = [] , action ) => {
   
       switch (action.type) {
 
         case types.addTodo:
-        
-          return[ ...initialState, action.payload]
+          return[ ...state, action.payload]
 
 
         case types.deleteTodo:
-          return initialState.filter(todo => todo.id !== action.payload);
-          
-         
+          return state.filter(todo => todo.id !== action.payload);
+
+        case types.updateTodo:
+          return state 
       
         default:
-          return initialState;
+          return state;
       }
 
 }

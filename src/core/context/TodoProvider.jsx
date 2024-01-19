@@ -12,6 +12,12 @@ const init = () => {
 export const TodoProvider = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal]= useState(false)
+  const [openUpdateModal, setOpenUpdateModal] = useState(false)
+  const [{updateInput, updateId, updatePriority}, setUpdateTodo] = useState({
+    updateId: '',
+    updateInput: '',
+    updatePriority: ''
+  })
 
 
 
@@ -27,6 +33,7 @@ export const TodoProvider = ({ children }) => {
   };
 
   const deleteItem = (id) => {
+    console.log(id, "TODOID")
   
     const action = {
       type: types.deleteTodo,
@@ -35,11 +42,32 @@ export const TodoProvider = ({ children }) => {
     dispatch(action);
   };
 
+  // const updateItem = (id, item, priority) => {
+  //   console.log(id, item, priority, "TODO CARD")
+
+  //   const action = {
+  //     type: types.updateTodo,
+  //     payload: {id, item, priority}
+  //   }
+
+  //   dispatch(action)
+
+  // }
+
   useEffect(() => {
 
     localStorage.setItem("todo", JSON.stringify(todoState));
 
   }, [todoState]);
+
+  const updateItem = (id, item, priority) => {
+    setUpdateTodo({
+      updateId: id,
+      updateInput: item,
+      updatePriority: priority
+    })
+    setOpenUpdateModal(true)
+  }
 
 
   return (
@@ -53,6 +81,13 @@ export const TodoProvider = ({ children }) => {
         deleteItem,
         openDeleteModal,
         setOpenDeleteModal,
+        openUpdateModal, 
+         setOpenUpdateModal,
+         updateItem,
+         updateId,
+         updateInput,
+         updatePriority,
+         setUpdateTodo
     
       }}
     >

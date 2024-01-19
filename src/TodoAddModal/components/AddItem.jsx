@@ -55,7 +55,7 @@ export const AddItem = () => {
           <Typography>Add Task</Typography>
           <TextField
          
-            placeholder="Escribe aquí tu tarea"
+            placeholder="Type your task here..."
             variant="outlined"
             id="text"
             type="text"
@@ -102,7 +102,7 @@ export const AddItem = () => {
             sx={{ mt: 2 }}
             onClick={() => onSubmit(item, priority)}
           >
-            Aceptar
+            Add
           </Button>
           <Button
             variant="outlined"
@@ -110,7 +110,7 @@ export const AddItem = () => {
             onClick={() => setOpenModal(false)}
           
           >
-            Cancelar
+            Cancel
           </Button>
         </Box>
       </Modal>
