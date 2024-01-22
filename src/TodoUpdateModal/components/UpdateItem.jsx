@@ -13,40 +13,33 @@ export const UpdateItem = () => {
     updateId,
     updateInput: contextUpdateInput,
     updatePriority: contextUpdatePriority,
+    updateItemAction
   } = useContext(TodoContext);
 
   const { error } = useAddModal();
 
- const [updateInput, setUpdateInput] = useState("");
- const [updatePriority, setUpdatePriority] = useState("");
+ const [updateInputLocal, setUpdateInputLocal] = useState("");
+ const [updatePriorityLocal, setUpdatePriorityLocal] = useState("");
 
  useEffect(() => {
-   setUpdateInput(contextUpdateInput);
-   setUpdatePriority(contextUpdatePriority);
-   console.log(contextUpdateInput)
+   setUpdateInputLocal(contextUpdateInput);
+   setUpdatePriorityLocal(contextUpdatePriority);
  }, [openUpdateModal, contextUpdateInput, contextUpdatePriority]);
 
   const selectPriority = ["high", "medium", "low"];
 
-  console.log(updateId, updateInput, updatePriority, "PRUEBA");
-
-
   const handleItemUpdate = (event) => {
-    setUpdateInput(event.target.value);
+    setUpdateInputLocal(event.target.value);
   };
 
   const handlePriorityUpdate = (newPriority) => {
-    setUpdatePriority(newPriority);
+    setUpdatePriorityLocal(newPriority);
   };
 
-  const handleUpdateSubmit = () => {
-    setUpdateTodo({
-      updateId: updateId,
-      updateInput: updateInput,
-      updatePriority: updatePriority,
-    });
+  const handleUpdateSubmit = (updateId, item, priority) => {
 
     setOpenUpdateModal(false);
+    updateItemAction(updateId, item, priority)
   };
   return (
     <>
@@ -83,7 +76,7 @@ export const UpdateItem = () => {
             error={error.error}
             helperText={error.message}
             onChange={handleItemUpdate}
-            value={updateInput}
+            value={updateInputLocal}
             style={{ marginBottom: "10px" }}
           />
           <Box>
@@ -125,7 +118,7 @@ export const UpdateItem = () => {
             variant="outlined"
             type="submit"
             sx={{ mt: 2 }}
-            onClick={() =>handleUpdateSubmit}
+            onClick={() =>handleUpdateSubmit(updateId, updateInputLocal, updatePriorityLocal)}
           >
             Add
           </Button>

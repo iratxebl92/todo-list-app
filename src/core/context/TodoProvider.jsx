@@ -19,9 +19,6 @@ export const TodoProvider = ({ children }) => {
     updatePriority: ''
   })
 
-
-
-
   const [todoState, dispatch] = useReducer(TodoReducer, [], init);
 
   const addTodoItem = (item, priority) => {
@@ -33,8 +30,6 @@ export const TodoProvider = ({ children }) => {
   };
 
   const deleteItem = (id) => {
-    console.log(id, "TODOID")
-  
     const action = {
       type: types.deleteTodo,
       payload:  id ,
@@ -42,23 +37,21 @@ export const TodoProvider = ({ children }) => {
     dispatch(action);
   };
 
-  // const updateItem = (id, item, priority) => {
-  //   console.log(id, item, priority, "TODO CARD")
-
-  //   const action = {
-  //     type: types.updateTodo,
-  //     payload: {id, item, priority}
-  //   }
-
-  //   dispatch(action)
-
-  // }
+  const updateItemAction = (id, itemUpdated, priorityUpdated) => {
+    const action = {
+      type: types.updateTodo,
+      payload: {id, itemUpdated, priorityUpdated}
+    }
+    dispatch(action)
+  }
 
   useEffect(() => {
 
     localStorage.setItem("todo", JSON.stringify(todoState));
 
   }, [todoState]);
+
+  console.log(todoState, "TODOSTATE")
 
   const updateItem = (id, item, priority) => {
     setUpdateTodo({
@@ -87,7 +80,8 @@ export const TodoProvider = ({ children }) => {
          updateId,
          updateInput,
          updatePriority,
-         setUpdateTodo
+         setUpdateTodo,
+         updateItemAction
     
       }}
     >
