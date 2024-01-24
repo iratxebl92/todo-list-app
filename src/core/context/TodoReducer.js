@@ -3,7 +3,6 @@ import { types } from "./types/types";
 
 
 export const TodoReducer = (state = [] , action ) => {
-  console.log(action.payload)
       switch (action.type) {
 
         case types.addTodo:
