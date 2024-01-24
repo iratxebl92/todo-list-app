@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export const UseTodoApp = () => {
     const [progress, setProgress] = useState('To Do')
@@ -10,6 +10,10 @@ export const UseTodoApp = () => {
        if( progressValue === 'Done') return setProgress('To Do')
     }
 
+    // useEffect(() => {
+    //     localStorage.setItem('progress', progress) 
+    // }, [progress])
+    
     
 
 return {

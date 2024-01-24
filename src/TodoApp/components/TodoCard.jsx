@@ -48,11 +48,6 @@ export const TodoCard = ({ todos = [] }) => {
         <Button onClick={() => onProgressButton(progress)}> {progress} </Button>
 
         <Box>
-          {/* <CircularProgress
-            variant="determinate"
-            value={progressCircle}
-            sx = {{color: progressCircle === 0 ? 'rgba(128, 128, 128, 0.2)' : '',  }}
-          />  */}
           <CircularProgress
             sx={
               progress === "To Do" ? { color: "rgba(128, 128, 128, 0.2)" } : ""
