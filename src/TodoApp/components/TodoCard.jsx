@@ -1,81 +1,67 @@
-import { Box, Button, CircularProgress, Typography } from "@mui/material";
-
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import NoteAltOutlinedIcon from "@mui/icons-material/NoteAltOutlined";
 import { UseTodoApp } from "../hooks/UseTodoApp";
-import { useContext} from "react";
+import { useContext } from "react";
 import { TodoContext } from "../../core/context/TodoContext";
 import "../styles/styles.css";
 import { DeleteItem } from "../../TodoDeleteModal/components/DeleteItem";
 import { UpdateItem } from "../../TodoUpdateModal/components/UpdateItem";
+import ProgressEmptyIcon from "../../core/Icons/ProgressEmptyIcon";
+import { InProgressIcon } from "../../core/Icons/InProgressIcon";
+import { FinishedProgressIcon } from "../../core/Icons/FinishedProgressIcon";
+import { UpdateIcon } from "../../core/Icons/UpdateIcon";
+import { DeleteIcon } from "../../core/Icons/DeleteIcon";
 
 export const TodoCard = ({ todos = [] }) => {
   const { id, item, priority } = todos;
   const { onProgressButton, progress } = UseTodoApp();
-  const { setOpenDeleteModal, setOpenUpdateModal, updateItem } = useContext(TodoContext);
+  const { setOpenDeleteModal, setOpenUpdateModal, updateItem } =
+    useContext(TodoContext);
 
   return (
     <>
-     <UpdateItem />  
-     <DeleteItem id={id} />
-    
-      <Box
-        className="todo-card"
-        sx={{
-          display: "flex",
-          border: "2px solid black",
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="body1" gutterBottom>
-            Task
-          </Typography>
-          <Typography variant="body3" gutterBottom>
-            {item}
-          </Typography>
-        </Box>
+      <UpdateItem />
+      <DeleteItem id={id} />
 
-        <Box>
-          <Typography variant="body1" gutterBottom>
-            Priority
-          </Typography>
-          <Typography variant="body3" gutterBottom>
-            {priority}
-          </Typography>
-        </Box>
-        <Button onClick={() => onProgressButton(progress)}> {progress} </Button>
+      <div className="task">
+        <div className="information column">
+          <span className="information__title">Task</span>
+          <span className="information__description">{item}</span>
+        </div>
 
-        <Box>
-          <CircularProgress
-            sx={
-              progress === "To Do" ? { color: "rgba(128, 128, 128, 0.2)" } : ""
-            }
-            className="circular-progress"
-            variant="determinate"
-            value={
-              progress === "In Progress"
-                ? 50
-                : progress === "Done" || "To Do"
-                ? 100
-                : 0
-            }
-          />
-        </Box>
-        <Box>
-          <NoteAltOutlinedIcon 
-            fontSize="large" 
-             onClick={() => updateItem(id, item, priority)} 
-            />
-          <DeleteOutlineOutlinedIcon
-            fontSize="large"
-            sx={{ color: "red" }}
-            onClick={() => setOpenDeleteModal(true)}
-          />
-          {/* small / medium /large */}
-        </Box>
-      </Box>
+        <div className="priority column">
+          <span className="priority__title">Priority</span>
+          <span className="priority__description">{priority}</span>
+        </div>
+
+        <div className="status column">
+          <button
+            className="status__button"
+            onClick={() => onProgressButton(progress)}
+          >
+            {progress}
+          </button>
+        </div>
+        <div className="progress column">
+          {
+  
+            progress === "To Do" ? (
+              <ProgressEmptyIcon />
+            ) : progress === "In Progress" ? (
+              <InProgressIcon />
+            ) : (
+              <FinishedProgressIcon />
+            )
+          }
+        </div>
+        <div className="action column">
+          <div className="action__update" onClick={() => updateItem(id, item, priority)}>
+            <UpdateIcon />
+          </div>
+          <div className="action__delete" onClick={() => setOpenDeleteModal(true)}>
+            <DeleteIcon />
+          </div>
+
+        </div>
+      </div>
     </>
   );
 };

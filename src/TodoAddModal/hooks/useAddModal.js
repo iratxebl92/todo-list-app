@@ -5,7 +5,11 @@ import { TodoContext } from "../../core/context/TodoContext";
 
 export const useAddModal = () => {
 
-    const {addTodoItem, setOpenModal} = useContext(TodoContext)
+  const {addTodoItem, setOpenModal} = useContext(TodoContext)
+  const selectPriority = ["high", "medium", "low"];
+  const [disabled, setDisabled] = useState(true)
+
+
 
   
   const [{item, priority}, setTodo] = useState(
@@ -56,6 +60,7 @@ export const useAddModal = () => {
 
   };
 
+
   return {
     item,
     error,
@@ -63,7 +68,9 @@ export const useAddModal = () => {
     setError,
     handleItemChange,
     onSubmit,
-    handlePriorityChange
+    handlePriorityChange,
+    selectPriority,
+    disabled, setDisabled
     
   };
 };

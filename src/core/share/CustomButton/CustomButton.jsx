@@ -1,22 +1,20 @@
-import { Button } from '@mui/material';
+
 import PropTypes from 'prop-types'
 
-// import '../styles/styles.css'
+import './styles.css'
 
 
-export const CustomButton = ({ value, className, variant, style, onClick }) => {
+export const CustomButton = ({ value, className, onClick, disabled }) => {
  
   return (
   
-      <Button 
+      <button 
         onClick={onClick}
-        style={style} 
-        variant={variant} 
-        // className="todo-app-add-button"
         className={className}
+        disabled={disabled}
       >
           {value}
-      </Button>
+      </button>
    
   );
 };
@@ -24,8 +22,7 @@ export const CustomButton = ({ value, className, variant, style, onClick }) => {
 CustomButton.propTypes = {
     value: PropTypes.string.isRequired,
     className: PropTypes.string,
-    variant: PropTypes.string,
-    style: PropTypes.object,
     onClick: PropTypes.func,
+    disabled: PropTypes.func
    
 }

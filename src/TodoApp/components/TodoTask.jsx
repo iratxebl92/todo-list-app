@@ -8,7 +8,7 @@ export const TodoTask = () => {
   
   return (
     <>
-        <Box className='todo-card-container'>
+     
       {todoState?.map((todo) => {
         return (
 
@@ -16,7 +16,7 @@ export const TodoTask = () => {
           <TodoCard  todos={todo} key={todo.id} />
           );
         })}
-        </Box>
+     
     </>
   );
 };

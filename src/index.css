@@ -1,4 +1,40 @@
-.todo-app {
-    border: 5px solid red;
-    height: 100vh;
-}
+/** Globals  */
+
+:root {
+    --purple: #713fff;
+    --backgroundGrey: #f0f2f5;
+    --grey: #7d8592;
+    --white: #fff;
+    --black: #111111;
+    --red: #f73446;
+    --yellow: #ffbd21;
+    --green: #0ac947;
+  
+    --primaryFont: "Poppins", sans-serif;
+  }
+  
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    font-family: var(--primaryFont);
+    margin: 0 1rem;
+    background-color: var(--backgroundGrey);
+    font-size: 1.4rem;
+  }
+  
+  button {
+    border: none;
+  }
+
+  h1 {
+    font-size: 3.6rem;
+  }
