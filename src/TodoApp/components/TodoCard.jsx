@@ -16,12 +16,9 @@ export const TodoCard = ({ todos = [] }) => {
   const { openUpdateModal, setOpenDeleteModal, setOpenUpdateModal, updateItem } =
     useContext(TodoContext);
 
-
   return (
     <>
-    {
-    openUpdateModal && <TodoUpdateModal/>
-    }
+   
 
       <DeleteItem id={id} />
 

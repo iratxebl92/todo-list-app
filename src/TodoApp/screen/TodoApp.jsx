@@ -4,15 +4,21 @@ import { TodoTask } from "../components/TodoTask";
 import { TodoContext } from "../../core/context/TodoContext";
 import { TodoAddModal } from "../../TodoAddModal/components/TodoAddModal";
 import "../styles/styles.css";
+import { TodoUpdateModal } from "../../TodoUpdateModal/components/TodoUpdateModal";
 
 export const TodoApp = () => {
-  const { openModal, setOpenModal } = useContext(TodoContext);
+  const { openModal, setOpenModal,openUpdateModal } = useContext(TodoContext);
 
   return (
     <>
       {openModal ? 
       
       <TodoAddModal/> : ""}
+        {
+          openUpdateModal && <TodoUpdateModal/>
+      }
+
+
       <div className="container">
           <div className="header">
             <h1 className="header__title">Task List</h1>

@@ -71,13 +71,16 @@ export const TodoUpdateModal = () => {
     <div className="modal__priorityContainer">
     <span className="modal__priority">Priority</span>
 
-    <ul >
+    <ul className="priority-list" >
       {selectPriority.map((priorityItem, index) => {
         return (
           <li
             key={index}
             onClick={() => handlePriorityUpdate(priorityItem)}
-            // className={`${priorityItem}-select priority `}
+           className={
+            `${priorityItem}-select priority ${updatePriorityLocal === priorityItem ? `${priorityItem}-active` : ""} `
+          
+          }
           >
             {priorityItem}
           </li>
