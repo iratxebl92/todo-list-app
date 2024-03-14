@@ -6,7 +6,7 @@ import { useAddModal } from "../../TodoAddModal/hooks/useAddModal";
 import { CustomModal } from "../../core/share/CustomModal/CustomModal";
 import { CustomButton } from "../../core/share/CustomButton/CustomButton";
 
-import "../styles/styles.css";
+
 import "../../core/share/ModalStyles/styles.css"
 import { useUpdateModal } from "../hooks/useUpdateModal";
 

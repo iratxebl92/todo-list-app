@@ -30,7 +30,7 @@ export const TodoCard = ({ todos = [] }) => {
 
         <div className="priority column">
           <span className="priority__title">Priority</span>
-          <span className="priority__description">{priority}</span>
+          <span className={`priority__description ${priority}`}>{priority}</span>
         </div>
 
         <div className="status column">

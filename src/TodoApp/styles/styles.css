@@ -147,4 +147,16 @@
    padding: 1rem;
    border-radius: 1rem;
    }
+
+   .high {
+    color: var(--red)
+   }
+
+   .medium {
+    color: var(--yellow)
+   }
+
+   .low {
+    color: var(--green)
+   }
   
