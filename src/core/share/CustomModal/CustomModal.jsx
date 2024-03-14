@@ -3,7 +3,6 @@ import { CloseIcon } from "../../Icons/CloseIcon";
 import "./styles.css";
 
 export const CustomModal = ({children, title = 'Alerta', viewHeader, clickAction }) => {
-  console.log("Custom modal")
   return (
     <div className="contenedor-modal">
       <div className="modal">
