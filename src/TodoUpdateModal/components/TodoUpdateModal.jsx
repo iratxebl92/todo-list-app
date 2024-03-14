@@ -37,8 +37,6 @@ export const TodoUpdateModal = () => {
     inputRef.current.focus();
   }, []);
   
-
-
  useEffect(() => {
    setUpdateInputLocal(contextUpdateInput);
    setUpdatePriorityLocal(contextUpdatePriority);
