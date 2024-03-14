@@ -51,7 +51,6 @@ export const TodoProvider = ({ children }) => {
 
   }, [todoState]);
 
-  console.log(todoState, "TODOSTATE")
 
   const updateItem = (id, item, priority) => {
     setUpdateTodo({

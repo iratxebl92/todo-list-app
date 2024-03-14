@@ -10,8 +10,6 @@ export const useAddModal = () => {
   const [disabled, setDisabled] = useState(true)
 
 
-
-  
   const [{item, priority}, setTodo] = useState(
     {
         item: '',

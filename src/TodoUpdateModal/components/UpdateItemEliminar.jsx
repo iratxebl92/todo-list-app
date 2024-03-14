@@ -1,5 +1,5 @@
 <Modal
-open={openModal}
+open={openUpdateModal}
 className="modal-container"
 aria-labelledby="modal-modal-title"
 aria-describedby="modal-modal-description"
@@ -21,7 +21,6 @@ aria-describedby="modal-modal-description"
 >
   <Typography>Add Task</Typography>
   <TextField
- 
     placeholder="Type your task here..."
     variant="outlined"
     id="text"
@@ -31,12 +30,12 @@ aria-describedby="modal-modal-description"
     autoFocus
     error={error.error}
     helperText={error.message}
-    onChange={handleItemChange}
-    value={item}
+    onChange={handleItemUpdate}
+    value={updateInputLocal}
     style={{ marginBottom: "10px" }}
   />
   <Box>
-    <Box style={{ display: "flex", gap: '20px' }}>
+    <Box style={{ display: "flex", gap: "20px" }}>
       {selectPriority.map((priorityItem, index) => {
         return (
           <Button
@@ -44,17 +43,25 @@ aria-describedby="modal-modal-description"
             style={{
               borderRadius: "10px",
               width: "120px",
-              fontWeight: 'bold'
-              
+              fontWeight: "bold",
             }}
             variant="outlined"
-            onClick={() => handlePriorityChange(priorityItem)}
+            onClick={() => handlePriorityUpdate(priorityItem)}
             // className={`${priorityItem}-select priority `}
             sx={{
-              border: priorityItem === 'high' ?' 1px solid #f73446' : priorityItem === 'medium' ? '1px solid #ffbd21' : '1px solid #0ac947',
-              color: priorityItem === 'high' ?'#f73446' : priorityItem === 'medium' ? '#ffbd21' : '#0ac947'
-              
-             }}
+              border:
+                priorityItem === "high"
+                  ? " 1px solid #f73446"
+                  : priorityItem === "medium"
+                  ? "1px solid #ffbd21"
+                  : "1px solid #0ac947",
+              color:
+                priorityItem === "high"
+                  ? "#f73446"
+                  : priorityItem === "medium"
+                  ? "#ffbd21"
+                  : "#0ac947",
+            }}
           >
             {priorityItem}
           </Button>
@@ -65,17 +72,15 @@ aria-describedby="modal-modal-description"
   <Button
     variant="outlined"
     type="submit"
-    disabled={item.length > 3 && priority.length >= 3 ? false : true}
     sx={{ mt: 2 }}
-    onClick={() => onSubmit(item, priority)}
+    onClick={() =>handleUpdateSubmit(updateId, updateInputLocal, updatePriorityLocal)}
   >
     Add
   </Button>
   <Button
     variant="outlined"
     sx={{ mt: 2 }}
-    onClick={() => setOpenModal(false)}
-  
+    onClick={() => setOpenUpdateModal(false)}
   >
     Cancel
   </Button>

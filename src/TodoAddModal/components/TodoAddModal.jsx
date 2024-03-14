@@ -3,10 +3,12 @@ import { TodoContext } from "../../core/context/TodoContext";
 import { useAddModal } from "../hooks/useAddModal";
 
 import "../styles/styles.css";
+import "../../core/share/ModalStyles/styles.css"
 import { CustomModal } from "../../core/share/CustomModal/CustomModal";
 import { CustomButton } from "../../core/share/CustomButton/CustomButton";
 
 export const TodoAddModal = () => {
+
   const { setOpenModal } = useContext(TodoContext);
   const inputRef = useRef(null)
 
@@ -34,9 +36,6 @@ export const TodoAddModal = () => {
     }, []);
     
 
-
-    
-console.log(priority)
   return (
     <>
       <CustomModal
