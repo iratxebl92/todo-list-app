@@ -1,4 +1,3 @@
-import { Button, Box, Modal, Typography } from "@mui/material";
 
 import "../styles/styles.css";
 import { useContext } from "react";
