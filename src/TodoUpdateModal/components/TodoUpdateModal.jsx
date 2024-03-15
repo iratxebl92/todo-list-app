@@ -50,7 +50,7 @@ export const TodoUpdateModal = () => {
          viewHeader={true}
         clickAction={() => setOpenUpdateModal(false)}
       >
-        <form action="">
+        <form>
         <div className="modal__inputContainer">
             <label htmlFor='updateTask' className="modal__label" >Task</label>
             <input
@@ -64,7 +64,7 @@ export const TodoUpdateModal = () => {
               ref={inputRef}
         
             />
-          </div>
+        </div>
     <div className="modal__priorityContainer">
     <span className="modal__priority">Priority</span>
 

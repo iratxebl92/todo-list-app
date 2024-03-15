@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const useUpdateModal = () => {
 
-  const {updateItemAction,setOpenUpdateModal, setShowUpdateMessage} = useContext(TodoContext)
+  const {updateItemAction,setOpenUpdateModal, showMessage, setShowMessage} = useContext(TodoContext)
 
   const [updateInputLocal, setUpdateInputLocal] = useState("");
   const [updatePriorityLocal, setUpdatePriorityLocal] = useState("");
@@ -26,7 +26,7 @@ export const useUpdateModal = () => {
         theme: "light"
         });
     }
-  
+  console.log(showMessage, "mensaje")
 
     const handleItemUpdate = (event) => {
         setUpdateInputLocal(event.target.value);
@@ -37,10 +37,9 @@ export const useUpdateModal = () => {
       };
     
       const handleUpdateSubmit = (updateId, item, priority) => {
-    
         setOpenUpdateModal(false);
         updateItemAction(updateId, item, priority)
-        setShowUpdateMessage(true)
+        setShowMessage(true)
         message()
        
       };
