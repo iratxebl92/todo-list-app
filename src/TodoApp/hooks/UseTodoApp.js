@@ -15,7 +15,7 @@ export const UseTodoApp = () => {
     // }, [progress])
     
     
-
+// Crear un dispatch especifico para el progress y añadirlo en el todoState
 return {
     onProgressButton,
     progress,

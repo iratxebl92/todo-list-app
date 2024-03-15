@@ -10,7 +10,7 @@ export const CustomButton = ({ value, className, onClick, disabled }) => {
   
       <button 
         onClick={onClick}
-        className={className}
+        className={`${className} button`}
         disabled={disabled}
       >
           {value}

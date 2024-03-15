@@ -81,7 +81,7 @@ export const TodoAddModal = () => {
           <div className="add-item-button-container">
             <CustomButton
               onClick={() => onSubmit(item, priority)}
-              className={`button confirmation-button ${disabled && 'button-disabled'} `}
+              className={`${disabled && 'button-disabled'} `}
               value= 'Add'
               disabled={ disabled}
 

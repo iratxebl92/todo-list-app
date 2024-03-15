@@ -18,6 +18,7 @@ export const TodoProvider = ({ children }) => {
     updateInput: '',
     updatePriority: ''
   })
+  const [deleteItemId, setDeleteItemId] = useState('')
 
   const [todoState, dispatch] = useReducer(TodoReducer, [], init);
 
@@ -29,7 +30,7 @@ export const TodoProvider = ({ children }) => {
     dispatch(action);
   };
 
-  const deleteItem = (id) => {
+  const deleteItemAction = (id) => {
     const action = {
       type: types.deleteTodo,
       payload:  id ,
@@ -60,7 +61,10 @@ export const TodoProvider = ({ children }) => {
     })
     setOpenUpdateModal(true)
   }
-
+const deleteItem = (id) => {
+  setDeleteItemId(id)
+  setOpenDeleteModal(true)
+}
 
   return (
     <TodoContext.Provider
@@ -70,7 +74,7 @@ export const TodoProvider = ({ children }) => {
         openModal,
         setOpenModal,
         addTodoItem,
-        deleteItem,
+       deleteItemAction,
         openDeleteModal,
         setOpenDeleteModal,
         openUpdateModal, 
@@ -80,7 +84,9 @@ export const TodoProvider = ({ children }) => {
          updateInput,
          updatePriority,
          setUpdateTodo,
-         updateItemAction
+         updateItemAction,
+         deleteItem,
+         deleteItemId
     
       }}
     >

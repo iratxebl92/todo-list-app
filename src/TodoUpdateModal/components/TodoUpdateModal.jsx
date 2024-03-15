@@ -89,9 +89,7 @@ export const TodoUpdateModal = () => {
   <div className="add-item-button-container">
       <CustomButton
                onClick={() =>handleUpdateSubmit(updateId, updateInputLocal, updatePriorityLocal)}
-              value= 'Edit'
-              className='button confirmation-button'
-      />
+              value= 'Edit'/>
   </div>
 </form>
       

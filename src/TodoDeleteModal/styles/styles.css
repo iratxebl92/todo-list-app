@@ -1,0 +1,23 @@
+.delete-modal {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.delete-modal__buttonContainer {
+   display: flex;
+   justify-content: center;
+   
+}
+
+.delete-modal .delete-modal__title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.delete-modal__button:first-child {
+    margin-right: 2rem;
+}

@@ -5,25 +5,22 @@ import { TodoContext } from "../../core/context/TodoContext";
 import { TodoAddModal } from "../../TodoAddModal/components/TodoAddModal";
 import "../styles/styles.css";
 import { TodoUpdateModal } from "../../TodoUpdateModal/components/TodoUpdateModal";
+import { TodoDeleteModal } from "../../TodoDeleteModal/components/TodoDeleteModal";
 
 export const TodoApp = () => {
-  const { openModal, setOpenModal,openUpdateModal } = useContext(TodoContext);
+  const { openModal, setOpenModal,openUpdateModal, openDeleteModal } = useContext(TodoContext);
 
   return (
     <>
-      {openModal ? 
-      
-      <TodoAddModal/> : ""}
-        {
-          openUpdateModal && <TodoUpdateModal/>
-      }
+      {openModal && <TodoAddModal/>}
+      {openUpdateModal && <TodoUpdateModal/>}
+      {openDeleteModal && <TodoDeleteModal/> }
 
 
       <div className="container">
           <div className="header">
             <h1 className="header__title">Task List</h1>
-            <CustomButton 
-              className="button" 
+            <CustomButton
               onClick={() => setOpenModal(true)}
               value="Add Task"
               />
@@ -31,14 +28,7 @@ export const TodoApp = () => {
           <div className="task-container">
           <TodoTask />
           </div>
-
-          {/* <CustomButton
-            value="Add Task"
-            classNameName="todo-app-add-button"
-            onClick={() => setOpenModal(true)}
-            style={{backgroundColor: '#646ff0', color: 'white'}}
-          /> */}
-       
+      
         </div>
     
     </>

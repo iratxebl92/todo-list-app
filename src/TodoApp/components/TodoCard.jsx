@@ -2,7 +2,6 @@ import { UseTodoApp } from "../hooks/UseTodoApp";
 import { useContext } from "react";
 import { TodoContext } from "../../core/context/TodoContext";
 import "../styles/styles.css";
-import { DeleteItem } from "../../TodoDeleteModal/components/DeleteItem";
 import ProgressEmptyIcon from "../../core/Icons/ProgressEmptyIcon";
 import { InProgressIcon } from "../../core/Icons/InProgressIcon";
 import { FinishedProgressIcon } from "../../core/Icons/FinishedProgressIcon";
@@ -13,14 +12,14 @@ import { TodoUpdateModal } from "../../TodoUpdateModal/components/TodoUpdateModa
 export const TodoCard = ({ todos = [] }) => {
   const { id, item, priority } = todos;
   const { onProgressButton, progress } = UseTodoApp();
-  const { openUpdateModal, setOpenDeleteModal, setOpenUpdateModal, updateItem } =
+  const { openUpdateModal, setOpenDeleteModal, setOpenUpdateModal, updateItem, deleteItem } =
     useContext(TodoContext);
 
   return (
     <>
    
 
-      <DeleteItem id={id} />
+      {/* <DeleteItem id={id} /> */}
 
       <div className="task">
         <div className="information column">
@@ -58,7 +57,7 @@ export const TodoCard = ({ todos = [] }) => {
             <UpdateIcon />
 
           </div>
-          <div className="action__delete" onClick={() => setOpenDeleteModal(true)}>
+          <div className="action__delete" onClick={() => deleteItem(id)}>
             <DeleteIcon />
           </div>
 

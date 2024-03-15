@@ -12,12 +12,15 @@ export const CustomModal = ({children, title = 'Alerta', viewHeader, clickAction
           <h3 className="modal__title">{title}</h3>
         </div>
         }
-        <button 
-        className="modal__closeButton"
-        onClick={clickAction}
-        >
+        {
+          clickAction &&
+          <button 
+          className="modal__closeButton"
+          onClick={clickAction}
+          >
          <CloseIcon/>
         </button>
+        }
         <div className="modal__contenido">
         {children}
         </div>
