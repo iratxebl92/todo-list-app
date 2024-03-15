@@ -17,10 +17,10 @@ export const TodoApp = () => {
       {openModal && <TodoAddModal/>}
       {openUpdateModal && <TodoUpdateModal/>}
       {openDeleteModal && <TodoDeleteModal/> }
-      {showUpdateMessage && <ToastContainer />}
+      {/* {showUpdateMessage && <ToastContainer />}
       {
         showDeleteMessage && <ToastContainer/> 
-      }
+      } */}
 
       <div className="container">
           <div className="header">
