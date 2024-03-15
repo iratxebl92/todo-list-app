@@ -1,5 +1,6 @@
 import { UseTodoApp } from "../hooks/UseTodoApp";
 import { useContext } from "react";
+import PropTypes from 'prop-types'
 import { TodoContext } from "../../core/context/TodoContext";
 import "../styles/styles.css";
 import ProgressEmptyIcon from "../../core/Icons/ProgressEmptyIcon";
@@ -9,7 +10,8 @@ import { UpdateIcon } from "../../core/Icons/UpdateIcon";
 import { DeleteIcon } from "../../core/Icons/DeleteIcon";
 
 
-export const TodoCard = ({ todos = [] }) => {
+
+export const TodoCard = ({ todos = []  }) => {
   const { id, item, priority } = todos;
   const { onProgressButton, progress } = UseTodoApp();
   const {updateItem, deleteItem } = useContext(TodoContext);
@@ -62,3 +64,7 @@ export const TodoCard = ({ todos = [] }) => {
     </>
   );
 };
+
+TodoCard.propTypes = {
+  todos: PropTypes.any.isRequired
+}

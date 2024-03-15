@@ -7,7 +7,7 @@ export const InProgressIcon = () => {
     xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 90 90"
     style={{enableBackground:"new 0 0 100 100"}} 
-    xml:space="preserve">
+    xmlSpace="preserve">
         <g>
             <ellipse transform="matrix(0.9871 -0.1602 0.1602 0.9871 -7.879 2.2598)" cx="10.1" cy="50" rx="7.1" ry="7.1"/>
             <ellipse transform="matrix(0.3827 -0.9239 0.9239 0.3827 -27.9594 58.1558)" cx="29.5" cy="50" rx="7.1" ry="7.1"/>

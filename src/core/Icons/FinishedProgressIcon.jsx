@@ -7,7 +7,7 @@ export const FinishedProgressIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 90 90"
       style={{ enableBackground: "new 0 0 100 100" }}
-      xml:space="preserve"
+      xmlSpace="preserve"
     >
       <g>
         <ellipse

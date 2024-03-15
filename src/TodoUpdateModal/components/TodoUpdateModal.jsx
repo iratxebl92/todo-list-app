@@ -52,15 +52,14 @@ export const TodoUpdateModal = () => {
       >
         <form action="">
         <div className="modal__inputContainer">
-            <label for='updateTask' className="modal__label" >Task</label>
+            <label htmlFor='updateTask' className="modal__label" >Task</label>
             <input
               id='updateTask'
               type="text"
               placeholder="Type your task here..."
               onChange={handleItemUpdate}
               value={updateInputLocal}
-              error={error.error}
-              helperText={error.message}
+              error='error'
               className="modal__input"
               ref={inputRef}
         

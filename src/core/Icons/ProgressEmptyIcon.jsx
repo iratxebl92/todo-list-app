@@ -7,7 +7,7 @@ const ProgressEmptyIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 90 90"
       style={{ enableBackground: "new 0 0 100 100" }}
-      xml:space="preserve"
+      xmlSpace="preserve"
     >
       <g>
         <path d="M10.1,42.9C6.2,42.9,3,46.1,3,50c0,3.9,3.2,7.1,7.1,7.1c3.9,0,7.1-3.2,7.1-7.1C17.2,46.1,14,42.9,10.1,42.9z M10.1,56.1   C6.7,56.1,4,53.4,4,50s2.7-6.1,6.1-6.1s6.1,2.7,6.1,6.1S13.4,56.1,10.1,56.1z" />

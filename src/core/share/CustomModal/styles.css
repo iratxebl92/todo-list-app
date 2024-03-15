@@ -56,10 +56,10 @@
 
 .modal__closeButton {
   position: absolute;
-  top: 30px;
+  top: 27px;
   right: 28px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border: none;
   background: none;
   color: var(--black)

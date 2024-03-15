@@ -45,15 +45,14 @@ export const TodoAddModal = () => {
       >
         <form action="">
           <div className="modal__inputContainer">
-            <label for='task' className="modal__label" >Task</label>
+            <label htmlFor='task' className="modal__label" >Task</label>
             <input
               id='task'
               type="text"
               placeholder="Type your task here..."
               onChange={handleItemChange}
               value={item}
-              error={error.error}
-              helperText={error.message}
+              error='error'
               className="modal__input"
               ref={inputRef}
             />

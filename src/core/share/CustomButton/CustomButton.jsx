@@ -23,6 +23,6 @@ CustomButton.propTypes = {
     value: PropTypes.string.isRequired,
     className: PropTypes.string,
     onClick: PropTypes.func,
-    disabled: PropTypes.func
+    disabled: PropTypes.any
    
 }
