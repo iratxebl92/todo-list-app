@@ -19,6 +19,9 @@ export const TodoProvider = ({ children }) => {
     updatePriority: ''
   })
   const [deleteItemId, setDeleteItemId] = useState('')
+  const [showUpdateMessage, setShowUpdateMessage] = useState(false)
+  const [showDeleteMessage, setShowDeleteMessage] = useState(false)
+
 
   const [todoState, dispatch] = useReducer(TodoReducer, [], init);
 
@@ -86,7 +89,11 @@ const deleteItem = (id) => {
          setUpdateTodo,
          updateItemAction,
          deleteItem,
-         deleteItemId
+         deleteItemId,
+        showUpdateMessage, 
+        setShowUpdateMessage,
+        showDeleteMessage, 
+        setShowDeleteMessage
     
       }}
     >

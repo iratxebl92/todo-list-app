@@ -160,3 +160,7 @@
     color: var(--green)
    }
   
+   .modal__message {
+    
+    color: var(--purple);
+  }
