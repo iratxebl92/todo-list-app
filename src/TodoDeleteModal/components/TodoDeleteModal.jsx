@@ -1,19 +1,17 @@
 
-import "../styles/styles.css";
 import { useContext } from "react";
 import { TodoContext } from "../../core/context/TodoContext";
 import { CustomModal } from "../../core/share/CustomModal/CustomModal";
 import { CustomButton } from "../../core/share/CustomButton/CustomButton";
+import { useDeleteModal } from "../hooks/useDeleteModal";
+import "../styles/styles.css";
 
 export const TodoDeleteModal = () => {
-  const { openDeleteModal, setOpenDeleteModal,deleteItemAction, deleteItemId } =
-    useContext(TodoContext);
-    console.log(deleteItemId, "Delete")
+  const { setOpenDeleteModal } = useContext(TodoContext);
+  const  {onHandleDelete} = useDeleteModal()
 
-  const onHandleDelete = () => {
-    deleteItemAction(deleteItemId);
-    setOpenDeleteModal(false);
-  };
+
+
 
   return (
     <>

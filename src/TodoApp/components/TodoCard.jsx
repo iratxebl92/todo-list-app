@@ -7,20 +7,16 @@ import { InProgressIcon } from "../../core/Icons/InProgressIcon";
 import { FinishedProgressIcon } from "../../core/Icons/FinishedProgressIcon";
 import { UpdateIcon } from "../../core/Icons/UpdateIcon";
 import { DeleteIcon } from "../../core/Icons/DeleteIcon";
-import { TodoUpdateModal } from "../../TodoUpdateModal/components/TodoUpdateModal";
+
 
 export const TodoCard = ({ todos = [] }) => {
   const { id, item, priority } = todos;
   const { onProgressButton, progress } = UseTodoApp();
-  const { openUpdateModal, setOpenDeleteModal, setOpenUpdateModal, updateItem, deleteItem } =
-    useContext(TodoContext);
+  const {updateItem, deleteItem } = useContext(TodoContext);
 
   return (
     <>
    
-
-      {/* <DeleteItem id={id} /> */}
-
       <div className="task">
         <div className="information column">
           <span className="information__title">Task</span>

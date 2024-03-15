@@ -1,9 +1,6 @@
 import { useContext, useState } from "react";
 import { TodoContext } from "../../core/context/TodoContext";
 
-
-
-
 export const useUpdateModal = () => {
 
   const {updateItemAction,setOpenUpdateModal} = useContext(TodoContext)
