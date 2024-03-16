@@ -2,7 +2,6 @@
 
 import { useContext, useEffect, useRef } from "react";
 import { TodoContext } from "../../core/context/TodoContext";
-import { useAddModal } from "../../TodoAddModal/hooks/useAddModal";
 import { CustomModal } from "../../core/share/CustomModal/CustomModal";
 import { CustomButton } from "../../core/share/CustomButton/CustomButton";
 
@@ -20,7 +19,6 @@ export const TodoUpdateModal = () => {
     updatePriority: contextUpdatePriority,
   } = useContext(TodoContext);
 
-  const { error } = useAddModal();
   const { selectPriority, 
     handleItemUpdate,
      handlePriorityUpdate, 
@@ -28,7 +26,7 @@ export const TodoUpdateModal = () => {
      updateInputLocal, 
      setUpdateInputLocal,
      updatePriorityLocal, 
-     setUpdatePriorityLocal 
+     setUpdatePriorityLocal,
     } = useUpdateModal()
 
 
@@ -64,7 +62,7 @@ export const TodoUpdateModal = () => {
               ref={inputRef}
         
             />
-        </div>
+      </div>
     <div className="modal__priorityContainer">
     <span className="modal__priority">Priority</span>
 
@@ -87,11 +85,10 @@ export const TodoUpdateModal = () => {
   </div>
   <div className="add-item-button-container">
       <CustomButton
-               onClick={() =>handleUpdateSubmit(updateId, updateInputLocal, updatePriorityLocal)}
-              value= 'Edit'/>
+        onClick={() =>handleUpdateSubmit(updateId, updateInputLocal, updatePriorityLocal)  }
+        value= 'Edit'/>
   </div>
 </form>
-      
       </CustomModal>
     </>
   );

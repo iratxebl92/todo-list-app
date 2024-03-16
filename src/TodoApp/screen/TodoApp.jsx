@@ -10,14 +10,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const TodoApp = () => {
-  const { openModal, setOpenModal,openUpdateModal, openDeleteModal,showMessage} = useContext(TodoContext);
+  const { openModal, setOpenModal,openUpdateModal, openDeleteModal} = useContext(TodoContext);
 
   return (
     <>
       {openModal && <TodoAddModal/>}
       {openUpdateModal && <TodoUpdateModal/>}
       {openDeleteModal && <TodoDeleteModal/> }
-      {showMessage && <ToastContainer/>}
+      <ToastContainer/>
     
 
       <div className="container">

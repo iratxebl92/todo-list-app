@@ -19,9 +19,6 @@ export const TodoProvider = ({ children }) => {
     updatePriority: ''
   })
   const [deleteItemId, setDeleteItemId] = useState('')
-  const [showMessage, setShowMessage] = useState(false)
-
-
 
   const [todoState, dispatch] = useReducer(TodoReducer, [], init);
 
@@ -47,6 +44,7 @@ export const TodoProvider = ({ children }) => {
       payload: {id, itemUpdated, priorityUpdated}
     }
     dispatch(action)
+    
   }
 
   useEffect(() => {
@@ -89,9 +87,8 @@ const deleteItem = (id) => {
          setUpdateTodo,
          updateItemAction,
          deleteItem,
-         deleteItemId,
-        showMessage, 
-        setShowMessage
+         deleteItemId
+
     
       }}
     >

@@ -17,13 +17,11 @@ export const useDeleteModal = () => {
       });
   }
 
-    const {deleteItemId, setOpenDeleteModal, deleteItemAction, setShowDeleteMessage, setShowMessage} = useContext(TodoContext)
+    const {deleteItemId, setOpenDeleteModal, deleteItemAction} = useContext(TodoContext)
 
     const onHandleDelete = () => {
         deleteItemAction(deleteItemId);
         setOpenDeleteModal(false);
-        // setShowDeleteMessage(true)
-        setShowMessage(true)
         messageDelete()
       };
   return {
