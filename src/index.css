@@ -38,3 +38,6 @@
   h1 {
     font-size: 3.6rem;
   }
+  .Toastify__toast-container{
+    background-color: pink;
+  }

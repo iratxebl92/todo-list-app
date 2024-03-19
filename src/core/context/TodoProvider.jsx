@@ -22,10 +22,12 @@ export const TodoProvider = ({ children }) => {
 
   const [todoState, dispatch] = useReducer(TodoReducer, [], init);
 
+
+
   const addTodoItem = (item, priority) => {
     const action = {
       type: types.addTodo,
-      payload: { id: new Date().getTime(), item: item, priority: priority },
+      payload: { id: new Date().getTime(), item: item, priority: priority, state: 'To Do' },
     };
     dispatch(action);
   };
@@ -47,9 +49,44 @@ export const TodoProvider = ({ children }) => {
     
   }
 
+  const progressChange = (id) => {
+ 
+    const progressState = todoState.find((element) => element.id === id) //Devuelve el bjeto que cumple la condición.
+    const newState = progressState.state === 'To Do' ? 'In Progress' : progressState.state === 'In Progress' ? 'Done' : 'To Do'; //Guardo el state
+
+    progressState.state = newState; //Modifico el state del objeto recuperado en base al if anterior.
+    const newTodos = [...todoState] 
+    // Hacemos una copia del array para poder modificarla y una vez que se modifique se llama a la action para que con el reducer se actualice el todoState. 
+    // React solo cambia un componente si se utiliza un hook para modificarlo.
+    // newTodos si se puede modificar porque es simplemente una const
+
+    const objIndex = newTodos.findIndex((element) => element.id === progressState.id) //Devuele la posición del elemento en el array, el que coincida con el id.
+
+    if(objIndex !== -1) {
+      newTodos[objIndex] = progressState; //Cambia en el indice que corresponda el objeto anterior por el que hemos actualizado, el que guardamos al inicio con el todoState.find
+      console.log(newTodos, "newTodos objIndex")
+      progressAction(newTodos)
+    } else {
+      console.log('El objeto con el id especificado no se encontró.')
+    }
+    //Si no encuentra el id devolverá -1, eso es que no encuentra nada. Si el objIndex NO es -1 entonces si ha devuelto algo.
+
+
+    
+
+  }
+  const progressAction = (newTodos) =>  {
+    const action = {
+      type: types.updateProgressTodo,
+      payload: newTodos
+    };
+    dispatch(action);
+  }
+  
   useEffect(() => {
 
     localStorage.setItem("todo", JSON.stringify(todoState));
+    console.log(todoState)
 
   }, [todoState]);
 
@@ -87,7 +124,10 @@ const deleteItem = (id) => {
          setUpdateTodo,
          updateItemAction,
          deleteItem,
-         deleteItemId
+         deleteItemId,
+         progressAction,
+         progressChange
+
 
     
       }}

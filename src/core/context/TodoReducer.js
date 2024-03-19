@@ -3,6 +3,7 @@ import { types } from "./types/types";
 
 
 export const TodoReducer = (state = [] , action ) => {
+  console.log(state, action. payload)
       switch (action.type) {
 
         case types.addTodo:
@@ -22,6 +23,9 @@ export const TodoReducer = (state = [] , action ) => {
                 }
               : item
           );
+        case types.updateProgressTodo:
+            return action.payload;
+
             
         default:
           return state;

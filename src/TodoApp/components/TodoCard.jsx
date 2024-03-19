@@ -1,5 +1,5 @@
-import { UseTodoApp } from "../hooks/UseTodoApp";
-import { useContext } from "react";
+
+import { useContext, useEffect } from "react";
 import PropTypes from 'prop-types'
 import { TodoContext } from "../../core/context/TodoContext";
 import "../styles/styles.css";
@@ -12,10 +12,11 @@ import { DeleteIcon } from "../../core/Icons/DeleteIcon";
 
 
 export const TodoCard = ({ todos = []  }) => {
-  const { id, item, priority } = todos;
-  const { onProgressButton, progress } = UseTodoApp();
-  const {updateItem, deleteItem } = useContext(TodoContext);
+  const { id, item, priority, state } = todos;
+  const {updateItem, deleteItem, progressAction, progressState, progressChange,todoState  } = useContext(TodoContext);
 
+
+  
   return (
     <>
    
@@ -33,17 +34,17 @@ export const TodoCard = ({ todos = []  }) => {
         <div className="status column">
           <button
             className="status__button"
-            onClick={() => onProgressButton(progress)}
+            onClick={() => progressChange(id)}
           >
-            {progress}
+            {state}
           </button>
         </div>
         <div className="progress column">
           {
-  
-            progress === "To Do" ? (
+            //SACAR COMO COMPONENTE
+            state === "To Do" ? (
               <ProgressEmptyIcon />
-            ) : progress === "In Progress" ? (
+            ) : state === "In Progress" ? (
               <InProgressIcon />
             ) : (
               <FinishedProgressIcon />

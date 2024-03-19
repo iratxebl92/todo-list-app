@@ -23,7 +23,7 @@ export const useUpdateModal = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light"
+        theme: "colored"
         });
     }
  
