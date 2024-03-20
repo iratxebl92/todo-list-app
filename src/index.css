@@ -11,6 +11,8 @@
     --green: #0ac947;
   
     --primaryFont: "Poppins", sans-serif;
+  
+    --toastify-color-success: var(--purple);
   }
   
   html {
@@ -38,6 +40,4 @@
   h1 {
     font-size: 3.6rem;
   }
-  .Toastify__toast-container{
-    background-color: pink;
-  }
+ 
