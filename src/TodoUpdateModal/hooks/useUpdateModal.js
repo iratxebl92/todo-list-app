@@ -4,16 +4,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 export const useUpdateModal = () => {
 
   const {updateItemAction,setOpenUpdateModal} = useContext(TodoContext)
 
   const [updateInputLocal, setUpdateInputLocal] = useState("");
   const [updatePriorityLocal, setUpdatePriorityLocal] = useState("");
-
-    
-    const selectPriority = ["high", "medium", "low"];
+  
     const message = () => {
       toast.success('The task has been updated', {
         position: "bottom-right",
@@ -44,7 +41,7 @@ export const useUpdateModal = () => {
       };
 
   return {
-    selectPriority,
+  
     handleItemUpdate,
     handlePriorityUpdate,
     handleUpdateSubmit,

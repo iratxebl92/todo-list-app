@@ -8,6 +8,7 @@ import { CustomButton } from "../../core/share/CustomButton/CustomButton";
 
 import "../../core/share/ModalStyles/styles.css"
 import { useUpdateModal } from "../hooks/useUpdateModal";
+import { selectPriority } from "../../core/share/CustomModal/constants/todoModalApp.constants";
 
 export const TodoUpdateModal = () => {
 
@@ -19,7 +20,7 @@ export const TodoUpdateModal = () => {
     updatePriority: contextUpdatePriority,
   } = useContext(TodoContext);
 
-  const { selectPriority, 
+  const { 
     handleItemUpdate,
      handlePriorityUpdate, 
      handleUpdateSubmit,

@@ -6,6 +6,7 @@ import "../styles/styles.css";
 import "../../core/share/ModalStyles/styles.css"
 import { CustomModal } from "../../core/share/CustomModal/CustomModal";
 import { CustomButton } from "../../core/share/CustomButton/CustomButton";
+import { selectPriority } from "../../core/share/CustomModal/constants/todoModalApp.constants";
 
 export const TodoAddModal = () => {
 
@@ -20,7 +21,7 @@ export const TodoAddModal = () => {
     handleItemChange,
     handlePriorityChange,
     onSubmit,
-    selectPriority,
+
     disabled, 
     setDisabled
   } = useAddModal();

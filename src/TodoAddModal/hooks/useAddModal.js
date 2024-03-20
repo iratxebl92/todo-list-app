@@ -6,7 +6,7 @@ import { TodoContext } from "../../core/context/TodoContext";
 export const useAddModal = () => {
 
   const {addTodoItem, setOpenModal} = useContext(TodoContext)
-  const selectPriority = ["high", "medium", "low"];
+
   const [disabled, setDisabled] = useState(true)
 
 
@@ -67,7 +67,6 @@ export const useAddModal = () => {
     handleItemChange,
     onSubmit,
     handlePriorityChange,
-    selectPriority,
     disabled, setDisabled
     
   };
