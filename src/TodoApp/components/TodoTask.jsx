@@ -8,7 +8,7 @@ export const TodoTask = () => {
   return (
     <>
      
-      {todoState?.map((todo) => {
+      {todoState?.slice().reverse().map((todo) => {
         return (
           <TodoCard  todos={todo} key={todo.id}  />
           );
