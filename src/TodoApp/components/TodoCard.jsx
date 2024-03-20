@@ -3,11 +3,9 @@ import { useContext, useEffect } from "react";
 import PropTypes from 'prop-types'
 import { TodoContext } from "../../core/context/TodoContext";
 import "../styles/styles.css";
-import ProgressEmptyIcon from "../../core/Icons/ProgressEmptyIcon";
-import { InProgressIcon } from "../../core/Icons/InProgressIcon";
-import { FinishedProgressIcon } from "../../core/Icons/FinishedProgressIcon";
 import { UpdateIcon } from "../../core/Icons/UpdateIcon";
 import { DeleteIcon } from "../../core/Icons/DeleteIcon";
+import { TodoProgress } from "./TodoProgress";
 
 
 
@@ -25,6 +23,7 @@ export const TodoCard = ({ todos = []  }) => {
           <span className="information__title">Task</span>
           <span className="information__description">{item}</span>
         </div>
+        
 
         <div className="priority column">
           <span className="priority__title">Priority</span>
@@ -39,18 +38,7 @@ export const TodoCard = ({ todos = []  }) => {
             {state}
           </button>
         </div>
-        <div className="progress column">
-          {
-            //SACAR COMO COMPONENTE
-            state === "To Do" ? (
-              <ProgressEmptyIcon />
-            ) : state === "In Progress" ? (
-              <InProgressIcon />
-            ) : (
-              <FinishedProgressIcon />
-            )
-          }
-        </div>
+        <TodoProgress state={state} />
         <div className="action column">
           <div className="action__update" onClick={() => updateItem(id, item, priority)}>
             <UpdateIcon />
