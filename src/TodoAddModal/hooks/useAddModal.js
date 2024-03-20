@@ -21,7 +21,7 @@ export const useAddModal = () => {
     message: "",
   });
 
- //Función para actualizar el item con el value del input
+ //Function to update the item with the value of the input
   const handleItemChange = (event) => {
 
     setTodo((prev)  => (
@@ -33,6 +33,8 @@ export const useAddModal = () => {
  
 
   };
+ //Function to update the priority with the value of the input
+
   const handlePriorityChange = (priority) => {
      setTodo((prev)  => (
         {
@@ -42,7 +44,7 @@ export const useAddModal = () => {
     )  )
   };
 
-
+// Function to add item and close modal
   const onSubmit = (item, priority) => {
     addTodoItem(item, priority)
     setError({

@@ -12,8 +12,6 @@ export const TodoCard = ({ todos = []  }) => {
   const { id, item, priority, state } = todos;
   const {updateItem, deleteItem, progressChange} = useContext(TodoContext);
 
-
-  
   return (
     <>
    

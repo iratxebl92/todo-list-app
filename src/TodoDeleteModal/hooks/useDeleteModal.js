@@ -4,6 +4,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const useDeleteModal = () => {
+  const {deleteItemId, setOpenDeleteModal, deleteItemAction} = useContext(TodoContext)
+
+  //React Toast
   const messageDelete = () => {
     toast.success('The task has been deleted', {
       position: "bottom-right",
@@ -17,8 +20,7 @@ export const useDeleteModal = () => {
       });
   }
 
-    const {deleteItemId, setOpenDeleteModal, deleteItemAction} = useContext(TodoContext)
-
+//Function to delete item
     const onHandleDelete = () => {
         deleteItemAction(deleteItemId);
         setOpenDeleteModal(false);

@@ -4,8 +4,9 @@ import { useAddModal } from "../hooks/useAddModal";
 
 import "../styles/styles.css";
 import "../../core/share/ModalStyles/styles.css"
-import { CustomModal } from "../../core/share/CustomModal/CustomModal";
-import { CustomButton } from "../../core/share/CustomButton/CustomButton";
+
+import { CustomModal } from "../../core/share/CustomModal/components/CustomModal";
+import { CustomButton } from "../../core/share/CustomButton/components/CustomButton";
 import { selectPriority } from "../../core/share/CustomModal/constants/todoModalApp.constants";
 
 export const TodoAddModal = () => {
@@ -13,11 +14,9 @@ export const TodoAddModal = () => {
   const { setOpenModal } = useContext(TodoContext);
   const inputRef = useRef(null)
 
-  
   const {
     item,
     priority,
-    error,
     handleItemChange,
     handlePriorityChange,
     onSubmit,
@@ -86,8 +85,7 @@ export const TodoAddModal = () => {
               disabled={ disabled}
 
             />
-              
-        
+                
           </div>
         </form>
       </CustomModal>

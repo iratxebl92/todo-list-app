@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { CustomButton } from "../../core/share/CustomButton/CustomButton";
+import { CustomButton } from "../../core/share/CustomButton/components/CustomButton";
 import { TodoTask } from "../components/TodoTask";
 import { TodoContext } from "../../core/context/TodoContext";
 import { TodoAddModal } from "../../TodoAddModal/components/TodoAddModal";
-import "../styles/styles.css";
 import { TodoUpdateModal } from "../../TodoUpdateModal/components/TodoUpdateModal";
 import { TodoDeleteModal } from "../../TodoDeleteModal/components/TodoDeleteModal";
 import { ToastContainer } from 'react-toastify';
+import "../styles/styles.css";
 import 'react-toastify/dist/ReactToastify.css';
 
 export const TodoApp = () => {

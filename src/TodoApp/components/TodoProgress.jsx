@@ -1,5 +1,3 @@
-import React from 'react'
-
 import {FinishedProgressIcon, ProgressEmptyIcon, InProgressIcon } from '../../core/Icons'
 
 export const TodoProgress = ({state}) => {

@@ -24,19 +24,21 @@ export const useUpdateModal = () => {
         });
     }
  
+// Updated item
+  const handleItemUpdate = (event) => {
+      setUpdateInputLocal(event.target.value);
+      };
 
-    const handleItemUpdate = (event) => {
-        setUpdateInputLocal(event.target.value);
+//Updated priority
+  const handlePriorityUpdate = (newPriority) => {
+      setUpdatePriorityLocal(newPriority);
       };
-    
-      const handlePriorityUpdate = (newPriority) => {
-        setUpdatePriorityLocal(newPriority);
-      };
-    
-      const handleUpdateSubmit = (updateId, item, priority) => {
-        setOpenUpdateModal(false);
-        updateItemAction(updateId, item, priority)
-        message()
+
+//Function to send the information that needs to be updated to the action
+  const handleUpdateSubmit = (updateId, item, priority) => {
+      setOpenUpdateModal(false);
+      updateItemAction(updateId, item, priority)
+      message()
 
       };
 

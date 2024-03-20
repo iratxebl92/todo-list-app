@@ -1,14 +1,10 @@
-
-
 import { useContext, useEffect, useRef } from "react";
 import { TodoContext } from "../../core/context/TodoContext";
-import { CustomModal } from "../../core/share/CustomModal/CustomModal";
-import { CustomButton } from "../../core/share/CustomButton/CustomButton";
-
-
-import "../../core/share/ModalStyles/styles.css"
+import { CustomButton } from "../../core/share/CustomButton/components/CustomButton";
+import { CustomModal } from "../../core/share/CustomModal/components/CustomModal";
 import { useUpdateModal } from "../hooks/useUpdateModal";
 import { selectPriority } from "../../core/share/CustomModal/constants/todoModalApp.constants";
+import "../../core/share/ModalStyles/styles.css";
 
 export const TodoUpdateModal = () => {
 
@@ -32,6 +28,7 @@ export const TodoUpdateModal = () => {
 
 
   const inputRef = useRef(null)
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);

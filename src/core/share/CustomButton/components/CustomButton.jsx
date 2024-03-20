@@ -1,8 +1,5 @@
-
 import PropTypes from 'prop-types'
-
-import './styles.css'
-
+import '../styles/styles.css'
 
 export const CustomButton = ({ value, className, onClick, disabled }) => {
  
