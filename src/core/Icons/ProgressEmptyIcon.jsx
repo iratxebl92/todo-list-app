@@ -1,6 +1,6 @@
 import './styles/styles.css'
 
-const ProgressEmptyIcon = () => {
+export const ProgressEmptyIcon = () => {
   return (
     <svg
       className="progress-svg"
@@ -20,4 +20,4 @@ const ProgressEmptyIcon = () => {
   );
 };
 
-export default ProgressEmptyIcon;
+

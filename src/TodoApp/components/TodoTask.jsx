@@ -1,18 +1,15 @@
-import { TodoCard } from "./TodoCard";
 import { useContext } from "react";
 import { TodoContext } from "../../core/context/TodoContext";
+import { TodoCard } from "./TodoCard";
 
 export const TodoTask = () => {
  const {todoState} = useContext(TodoContext)
 
-  
   return (
     <>
      
       {todoState?.map((todo) => {
         return (
-
-
           <TodoCard  todos={todo} key={todo.id}  />
           );
         })}

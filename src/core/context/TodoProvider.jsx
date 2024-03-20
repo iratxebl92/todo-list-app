@@ -64,7 +64,7 @@ export const TodoProvider = ({ children }) => {
 
     if(objIndex !== -1) {
       newTodos[objIndex] = progressState; //Cambia en el indice que corresponda el objeto anterior por el que hemos actualizado, el que guardamos al inicio con el todoState.find
-      console.log(newTodos, "newTodos objIndex")
+
       progressAction(newTodos)
     } else {
       console.log('El objeto con el id especificado no se encontró.')
@@ -84,9 +84,7 @@ export const TodoProvider = ({ children }) => {
   }
   
   useEffect(() => {
-
     localStorage.setItem("todo", JSON.stringify(todoState));
-    console.log(todoState)
 
   }, [todoState]);
 

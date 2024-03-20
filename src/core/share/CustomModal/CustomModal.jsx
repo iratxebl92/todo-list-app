@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { CloseIcon } from "../../Icons/CloseIcon";
+import { CloseIcon } from "../../Icons";
 import "./styles.css";
 
 export const CustomModal = ({children, title = 'Alerta', viewHeader, clickAction }) => {

@@ -1,17 +1,16 @@
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import PropTypes from 'prop-types'
 import { TodoContext } from "../../core/context/TodoContext";
 import "../styles/styles.css";
-import { UpdateIcon } from "../../core/Icons/UpdateIcon";
-import { DeleteIcon } from "../../core/Icons/DeleteIcon";
+import { DeleteIcon, UpdateIcon } from "../../core/Icons";
 import { TodoProgress } from "./TodoProgress";
 
 
 
 export const TodoCard = ({ todos = []  }) => {
   const { id, item, priority, state } = todos;
-  const {updateItem, deleteItem, progressAction, progressState, progressChange,todoState  } = useContext(TodoContext);
+  const {updateItem, deleteItem, progressChange} = useContext(TodoContext);
 
 
   
