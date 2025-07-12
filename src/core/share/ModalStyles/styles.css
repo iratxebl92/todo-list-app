@@ -28,7 +28,8 @@
 .priority-list {
 display: flex;
 justify-content: start;
-padding-left: 0;    
+padding-left: 0;
+gap: 12px;    
 }
 
 .priority {
